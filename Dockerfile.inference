@@ -11,7 +11,7 @@
  COPY ./model ./model
  COPY inference/app.py app.py
  
- #Exposing port 5000 from the container
- EXPOSE 5000
+ #Exposing port 8080 from the container
+ EXPOSE 8080
  #Starting the Python application
  CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]

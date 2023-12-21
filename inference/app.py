@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 import joblib
+import logging
 
 app = Flask(__name__)
+app.logger.setLevel(logging.INFO)
 
 def load_model(filename):
     with open(filename, 'rb') as f:
