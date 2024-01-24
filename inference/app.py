@@ -24,6 +24,7 @@ def score():
     """Return a machine learning prediction."""
 
     app.logger.info("Received score request")
+    app.logger.info("Additional Log")
     data = request.get_json()
 
     app.logger.info("Generating prediction")
