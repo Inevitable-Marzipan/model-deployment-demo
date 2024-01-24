@@ -36,7 +36,7 @@ jobs:
       
     - name: Re-deploy Dev Service
       env:
-        CLUSTER_NAME: ${{ secrects.AWS_CLUSTER_NAME }}
+        CLUSTER_NAME: ${{ secrets.AWS_CLUSTER_NAME }}
         SERVICE_NAME: ${{ secrets.AWS_SERVICE_NAME }}
       
       run: |
