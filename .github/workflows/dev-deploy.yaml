@@ -34,10 +34,10 @@ jobs:
         docker build -f Dockerfile.inference -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       
-      - name: Re-deploy Dev Service
-        env:
-          CLUSTER_NAME: ${{ secrects.AWS_CLUSTER_NAME }}
-          SERVICE_NAME: ${{ secrets.AWS_SERVICE_NAME }}
-        
-        run: |
-          aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --force-new-deployment
+    - name: Re-deploy Dev Service
+      env:
+        CLUSTER_NAME: ${{ secrects.AWS_CLUSTER_NAME }}
+        SERVICE_NAME: ${{ secrets.AWS_SERVICE_NAME }}
+      
+      run: |
+        aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --force-new-deployment
